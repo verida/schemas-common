@@ -1,0 +1,100 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://core.schemas.verida.io/credential/base/v1.0.0/schema.json",
+    "title": "Location",
+    "titlePlural": "Location Tracking",
+    "description": "Location tracking data",
+    "type": "object",
+    "database": {
+        "name": "location_tracking",
+        "indexes": {
+            "location": ["latitude", "longitude", "timestamp"],
+            "timestamp": ["timestamp"]
+        }
+    },
+    "appearance": {
+        "style": {
+            "color": "#FF886E",
+            "icon": "./icon.svg"
+        }
+    },
+    "layouts": {
+        "list": [
+            "timestamp",
+            "latitude",
+            "longitude",
+            "activityType"
+        ],
+        "view": [
+            "timestamp",
+            "activityType",
+            "latitude",
+            "longitude",
+            "locationAccuracy",
+            "altitude",
+            "altitudeAccuracy",
+            "isMoving",
+            "speed",
+            "speedAccuracy",
+            "heading",
+            "headingAccuracy"
+        ]
+    },
+    "allOf": [
+        {"$ref": "https://core.schemas.verida.io/base/v1.0.0/schema.json"},
+        {
+            "properties": {
+                "latitude": {
+                    "title": "Latitude",
+                    "type": "number"
+                },
+                "longitude": {
+                    "title": "Longitude",
+                    "type": "number"
+                },
+                "locationAccuracy": {
+                    "title": "Location accuracy",
+                    "type": "number"
+                },
+                "altitude": {
+                    "title": "Altitude",
+                    "type": "number"
+                },
+                "altitudeAccuracy": {
+                    "title": "Altitude accuracy",
+                    "type": "number"
+                },
+                "isMoving": {
+                    "title": "Moving?",
+                    "type": "boolean"
+                },
+                "speed": {
+                    "title": "Speed",
+                    "type": "number"
+                },
+                "speedAccuracy": {
+                    "title": "Speed accuracy",
+                    "type": "number"
+                },
+                "heading": {
+                    "title": "Heading",
+                    "type": "number"
+                },
+                "headingAccuracy": {
+                    "title": "Heading accuracy",
+                    "type": "number"
+                },
+                "activityType": {
+                    "title": "Activity type",
+                    "type": "string"
+                },
+                "timestamp": {
+                    "title": "Timetstamp",
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "required": ["latitude", "longitude", "timestamp"]
+        }
+    ]
+  }

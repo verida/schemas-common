@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://core.schemas.verida.io/credential/base/v1.0.0/schema.json",
+    "$id": "https://core.schemas.verida.io/credential/base/v0.1.0/schema.json",
     "title": "Location",
     "titlePlural": "Location Tracking",
     "description": "Location tracking data",
@@ -41,7 +41,7 @@
         ]
     },
     "allOf": [
-        {"$ref": "https://core.schemas.verida.io/base/v1.0.0/schema.json"},
+        {"$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json"},
         {
             "properties": {
                 "latitude": {

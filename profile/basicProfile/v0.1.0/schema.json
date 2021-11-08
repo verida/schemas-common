@@ -15,8 +15,27 @@
         "name": {
             "type": "string",
             "minLength": 2,
-            "maxLength": 150
+            "maxLength": 140
         },
+        "country": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 140
+        },
+        "description": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 140
+        },
+        "avatar": {
+            "type": "object",
+            "description": "Profile image for the profile",
+            "properties": {
+                "uri": {
+                    "type": "string"
+                }
+            }
+        }
     },
     "required": ["name"]
   }

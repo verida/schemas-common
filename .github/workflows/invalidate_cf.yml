@@ -15,8 +15,8 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     steps:
         - name: CFInvlidate
-        - uses: chetan/invalidate-cloudfront-action@v2
-        - env:
+          uses: chetan/invalidate-cloudfront-action@v2
+          env:
             DISTRIBUTION: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
             PATHS: '/'
             AWS_REGION: 'us-west-2'

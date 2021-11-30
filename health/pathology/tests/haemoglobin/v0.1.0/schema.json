@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://schemas.verida.io/health/pathology/tests/haemoglobin/v0.1.0/schema.json",
+    "$id": "https://common.schemas.verida.io/health/pathology/tests/haemoglobin/v0.1.0/schema.json",
     "title": "Haemoglobin Test",
     "titlePlural": "Haemoglobin Tests",
     "type": "object",

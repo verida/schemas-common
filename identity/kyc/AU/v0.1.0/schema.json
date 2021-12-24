@@ -1,6 +1,6 @@
 {
 	"$schema": "https://json-schema.org/draft/2020-12/schema",
-	"$id": "https://common.schemas.verida.io/identity/kyc/AU/schema.json",
+	"$id": "https://common.schemas.verida.io/identity/kyc/AU/v0.1.0/schema.json",
 	"name": "https://schemas.verida.io/identity/kyc/AU",
 	"title": "Australia: Basic KYC",
 	"titlePlural": "KYC AU",

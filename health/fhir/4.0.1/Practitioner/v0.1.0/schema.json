@@ -1,0 +1,29 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://common.schemas.verida.io/health/fhir/4.0.1/Practitioner/v0.1.0/schema.json",
+	"title": "Practitioner",
+	"description": "A FHIR Practitioner",
+	"database": {
+		"name": "health_practitioner"
+	},
+	"type": "object",
+	"allOf": [
+		{
+			"$ref": "https://common.schemas.verida.io/health/fhir/4.0.1/base/v0.1.0/schema.json"
+		},
+		{
+			"$ref": "https://common.schemas.verida.io/health/fhir/4.0.1/schema.json#/definitions/Practitioner"
+		},
+		{
+			"properties": {
+				"resourceType": {
+					"const": "Practitioner"
+				},
+				"code": {
+					"default": "doctor"
+				}
+			},
+			"required": ["name", "telecom", "location"]
+		}
+	]
+}

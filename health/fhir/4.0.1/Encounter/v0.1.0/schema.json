@@ -1,0 +1,36 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://common.schemas.verida.io/health/fhir/4.0.1/Encounter/v0.1.0/schema.json",
+	"title": "Encounter",
+	"description": "A FHIR Encounter",
+	"layouts": {
+		"list": ["serviceType.text", "status", "period.start"],
+		"view": ["subject", "period.start", "serviceType.text", "status"]
+	},
+	"database": {
+		"name": "health_encounter",
+		"indexes": {
+			"period.start": ["period.start"]
+		}
+	},
+	"type": "object",
+	"allOf": [
+		{
+			"$ref": "https://common.schemas.verida.io/health/fhir/4.0.1/base/v0.1.0/schema.json"
+		},
+		{
+			"$ref": "https://common.schemas.verida.io/health/fhir/4.0.1/schema.json#/definitions/Encounter"
+		},
+		{
+			"properties": {
+				"resourceType": {
+					"const": "Encounter"
+				},
+				"serviceType": {
+					"default": "General Practice"
+				}
+			},
+			"required": ["status", "serviceType", "subject", "participant", "period"]
+		}
+	]
+}

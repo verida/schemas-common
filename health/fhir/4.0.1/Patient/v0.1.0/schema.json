@@ -1,0 +1,33 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://common.schemas.verida.io/health/fhir/4.0.1/Patient/v0.1.0/schema.json",
+	"title": "Patient",
+	"description": "A FHIR Patient",
+	"database": {
+		"name": "health_patient",
+		"indexes": {
+			"displayName": ["displayName"]
+		}
+	},
+	"layouts": {
+		"list": ["displayName", "generalPractioner"],
+		"view": ["displayName", "gender", "generalPractioner"]
+	},
+	"type": "object",
+	"allOf": [
+		{
+			"$ref": "https://common.schemas.verida.io/health/fhir/4.0.1/base/v0.1.0/schema.json"
+		},
+		{
+			"$ref": "https://common.schemas.verida.io/health/fhir/4.0.1/schema.json#/definitions/Patient"
+		},
+		{
+			"properties": {
+				"ResourceType": {
+					"const": "Patient"
+				}
+			},
+			"required": ["name", "gender", "birthDate", "generalPractitioner"]
+		}
+	]
+}

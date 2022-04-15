@@ -1,0 +1,49 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://common.schemas.verida.io/social/following/v0.1.0/schema.json",
+    "title": "Contact",
+    "titlePlural": "Following",
+    "description": "People and businesses I'm following",
+    "type": "object",
+    "appearance": {
+        "style": {
+            "color": "#FD4F64",
+            "icon": "./icon.svg"
+        }
+    },
+    "database": {
+        "name": "social_following",
+        "indexes": {
+        }
+    },
+    "layouts": {
+        "create": [
+            "name",
+            "uri",
+            "followedTimestamp"
+        ],
+        "view": [
+            "name",
+            "uri",
+            "sourceApplication",
+            "followedTimestamp"
+        ]
+    },
+    "allOf": [
+        {"$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json"},
+        {
+            "properties": {
+                "uri": {
+                    "title": "URI",
+                    "type": "string"
+                },
+                "followedTimestamp": {
+                    "title": "Followed timestamp",
+                    "type": "string",
+                    "format": "date"
+                }
+            },
+            "required": ["name", "uri"]
+        }
+    ]
+  }

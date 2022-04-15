@@ -26,6 +26,7 @@
             "name",
             "uri",
             "sourceApplication",
+            "sourceId",
             "followedTimestamp"
         ]
     },
@@ -40,7 +41,7 @@
                 "followedTimestamp": {
                     "title": "Followed timestamp",
                     "type": "string",
-                    "format": "date"
+                    "format": "date-time"
                 }
             },
             "required": ["name", "uri"]

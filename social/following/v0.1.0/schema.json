@@ -1,9 +1,9 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "$id": "https://common.schemas.verida.io/social/following/v0.1.0/schema.json",
-    "title": "Contact",
+    "title": "Following",
     "titlePlural": "Following",
-    "description": "People and businesses I'm following",
+    "description": "A person or business I am following",
     "type": "object",
     "appearance": {
         "style": {

@@ -1,0 +1,60 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://common.schemas.verida.io/social/post/v0.1.0/schema.json",
+    "title": "Post",
+    "titlePlural": "Posts",
+    "description": "Social media post",
+    "type": "object",
+    "appearance": {
+        "style": {
+            "color": "#FD4F64",
+            "icon": "./icon.svg"
+        }
+    },
+    "database": {
+        "name": "social_post",
+        "indexes": {
+        }
+    },
+    "layouts": {
+        "create": [
+            "name",
+            "uri",
+            "followedTimestamp"
+        ],
+        "view": [
+            "name",
+            "uri",
+            "sourceApplication",
+            "sourceId",
+            "createdTimestamp"
+        ]
+    },
+    "allOf": [
+        {"$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json"},
+        {
+            "properties": {
+                "content": {
+                    "title": "Content",
+                    "description": "Content of the post",
+                    "type": "string"
+                },
+                "contentHtml": {
+                    "title": "Content (html)",
+                    "description": "HTML formatted version of the post",
+                    "type": "string"
+                },
+                "uri": {
+                    "title": "URI",
+                    "type": "string"
+                },
+                "createdTimestamp": {
+                    "title": "Created timestamp",
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "required": ["name", "uri"]
+        }
+    ]
+  }

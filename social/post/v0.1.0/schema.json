@@ -19,15 +19,16 @@
     "layouts": {
         "create": [
             "name",
-            "uri",
-            "followedTimestamp"
+            "content",
+            "uri"
         ],
         "view": [
             "name",
+            "content",
             "uri",
             "sourceApplication",
             "sourceId",
-            "createdTimestamp"
+            "insertedAt"
         ]
     },
     "allOf": [
@@ -48,10 +49,9 @@
                     "title": "URI",
                     "type": "string"
                 },
-                "createdTimestamp": {
-                    "title": "Created timestamp",
-                    "type": "string",
-                    "format": "date-time"
+                "sourceData" :{
+                    "title": "Source data",
+                    "type": "object"
                 }
             },
             "required": ["name", "uri"]

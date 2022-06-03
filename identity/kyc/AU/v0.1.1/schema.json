@@ -70,7 +70,9 @@
 				},
 				"dateOfBirth": {
 					"title": "Date of Birth",
-					"format": "date-time"
+					"type": "string",
+					"format": "date",
+					"description": "YYYY-MM-DD"
 				}
 			},
 			"required": ["firstName"]

@@ -1,32 +1,38 @@
 {
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://common.schemas.verida.io/health/pathology/tests/syphilis/ab/v0.1.0/schema.json",
-    "title": "Syphilis (AB) Test",
-    "titlePlural": "Syphilis (AB) Tests",
-    "type": "object",
-    "database": {
-        "name": "credential"
-    },
-    "layouts": {
-        "view": [
-            "fullName",
-            "dateOfBirth",
-            "testTimestamp",
-            "result"
-        ]
-    },
-    "allOf": [
-        { "$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json" },
-        { "$ref": "https://common.schemas.verida.io/credential/base/v0.1.0/schema.json"},
-        {"$ref": "https://common.schemas.verida.io/health/pathology/identifiable/v0.1.0/schema.json"},
-        {
-            "properties": {
-                "result": {
-                    "title": "Result",
-                    "type": "string",
-                    "enum": ["Reactive", "Non-Reactive"]
-                }
-            }
-        }
-    ]
-  }
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://common.schemas.verida.io/health/pathology/tests/syphilis/ab/v0.1.0/schema.json",
+	"title": "Syphilis (AB) Test",
+	"titlePlural": "Syphilis (AB) Tests",
+	"type": "object",
+	"database": {
+		"name": "credential"
+	},
+	"layouts": {
+		"view": ["fullName", "dateOfBirth", "testTimestamp", "result"],
+		"create": [
+			"fullName",
+			"dateOfBirth",
+			"patientId",
+			"testTimestamp",
+			"result"
+		]
+	},
+	"allOf": [
+		{ "$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json" },
+		{
+			"$ref": "https://common.schemas.verida.io/credential/base/v0.1.0/schema.json"
+		},
+		{
+			"$ref": "https://common.schemas.verida.io/health/pathology/identifiable/v0.1.0/schema.json"
+		},
+		{
+			"properties": {
+				"result": {
+					"title": "Result",
+					"type": "string",
+					"enum": ["Reactive", "Non-Reactive"]
+				}
+			}
+		}
+	]
+}

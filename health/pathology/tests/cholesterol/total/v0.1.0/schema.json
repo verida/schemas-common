@@ -1,37 +1,49 @@
 {
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://common.schemas.verida.io/health/pathology/tests/cholesterol/total/v0.1.0/schema.json",
-    "title": "Cholesterol (Total) Test",
-    "titlePlural": "Cholesterol (Total) Tests",
-    "type": "object",
-    "database": {
-        "name": "credential"
-    },
-    "layouts": {
-        "view": [
-            "fullName",
-            "dateOfBirth",
-            "testTimestamp",
-            "result",
-            "acceptable"
-        ]
-    },
-    "allOf": [
-        { "$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json" },
-        { "$ref": "https://common.schemas.verida.io/credential/base/v0.1.0/schema.json"},
-        {"$ref": "https://common.schemas.verida.io/health/pathology/identifiable/v0.1.0/schema.json"},
-        {
-            "properties": {
-                "result": {
-                    "title": "Result (mg/dL)",
-                    "type": "integer"
-                },
-                "acceptable": {
-                    "title": "Acceptable range?",
-                    "type": "string",
-                    "enum": ["Yes", "No"]
-                }
-            }
-        }
-    ]
-  }
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://common.schemas.verida.io/health/pathology/tests/cholesterol/total/v0.1.0/schema.json",
+	"title": "Cholesterol (Total) Test",
+	"titlePlural": "Cholesterol (Total) Tests",
+	"type": "object",
+	"database": {
+		"name": "credential"
+	},
+	"layouts": {
+		"view": [
+			"fullName",
+			"dateOfBirth",
+			"testTimestamp",
+			"result",
+			"acceptable"
+		],
+		"create": [
+			"fullName",
+			"dateOfBirth",
+			"patientId",
+			"testTimestamp",
+			"result",
+			"acceptable"
+		]
+	},
+	"allOf": [
+		{ "$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json" },
+		{
+			"$ref": "https://common.schemas.verida.io/credential/base/v0.1.0/schema.json"
+		},
+		{
+			"$ref": "https://common.schemas.verida.io/health/pathology/identifiable/v0.1.0/schema.json"
+		},
+		{
+			"properties": {
+				"result": {
+					"title": "Result (mg/dL)",
+					"type": "integer"
+				},
+				"acceptable": {
+					"title": "Acceptable range?",
+					"type": "string",
+					"enum": ["Yes", "No"]
+				}
+			}
+		}
+	]
+}

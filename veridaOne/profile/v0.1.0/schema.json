@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://common.schemas.verida.io/veridaOne/profile/v0.1.0/schema.json",
+  "name": "https://common.schemas.verida.io/veridaOne/profile/v0.1.0/schema.json",
+  "title": "Verida One Profile",
+  "titlePlural": "Verida One Profiles",
+  "description": "Configuration of a profile on Verida One",
+  "type": "object",
+  "database": {
+    "name": "profiles"
+  },
+  "allOf": [
+    { "$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json" },
+    {
+      "properties": {
+        "customLinks": {
+          "title": "Custom Links",
+          "type": "array",
+          "items": {
+            "$ref": "#/$def/customLink"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "platformLinks": {
+          "title": "Platform Links",
+          "type": "array",
+          "items": {
+            "$ref": "#/$def/platformLink"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "walletAddresses": {
+          "title": "Wallet Addresses",
+          "type": "array",
+          "items": {
+            "$ref": "#/$def/walletAddress"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "featuredCollectibles": {
+          "title": "Featured Collectibles",
+          "type": "array",
+          "items": {
+            "$ref": "#/$def/featuredCollectible"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      },
+      "$defs": {
+        "customLink": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "title": "Label",
+              "type": "string"
+            },
+            "url": {
+              "title": "URL",
+              "type": "string"
+            },
+            "featured": {
+              "title": "Featured",
+              "type": "boolean"
+            },
+            "order": {
+              "title": "Order",
+              "type": "integer"
+            }
+          },
+          "required": ["label", "url", "order"]
+        },
+        "platformLink": {
+          "type": "object",
+          "properties": {
+						"category": {
+              "title": "Category",
+              "type": "string",
+							"enum": ["social"]
+            },
+            "platform": {
+              "title": "Platform",
+              "type": "string"
+            },
+            "accountId": {
+              "title": "Account Id",
+              "type": "string"
+            },
+						"avatarUrl": {
+              "title": "Avatar URL",
+              "type": "string"
+            },
+            "url": {
+              "title": "URL",
+              "type": "string"
+            },
+            "verificationProof": {
+              "title": "Verification Proof",
+              "type": "string"
+            },
+            "order": {
+              "title": "Order",
+              "type": "integer"
+            }
+          },
+          "required": ["category", "platform", "account", "url", "order"]
+        },
+        "walletAddress": {
+          "type": "object",
+          "properties": {
+            "chain": {
+              "title": "Chain",
+              "type": "string"
+            },
+            "address": {
+              "title": "Address",
+              "type": "string"
+            },
+            "verificationProof": {
+              "title": "Verification Proof",
+              "type": "string"
+            },
+            "order": {
+              "title": "Order",
+              "type": "integer"
+            }
+          },
+          "required": ["chain", "address", "order"]
+        },
+        "featuredCollectible": {
+          "type": "object",
+          "properties": {
+            "chain": {
+              "title": "Chain",
+              "type": "string"
+            },
+            "contractAddress": {
+              "title": "Contract Address",
+              "type": "string"
+            },
+            "tokenId": {
+              "title": "Token Id",
+              "type": "string"
+            },
+            "ownerAddress": {
+              "title": "Owner Address",
+              "type": "string"
+            },
+            "order": {
+              "title": "Order",
+              "type": "integer"
+            }
+          },
+          "required": ["chain", "contractAddress", "tokenId", "ownerAddress", "order"]
+        }
+      },
+      "required": []
+    }
+  ]
+}

@@ -9,6 +9,12 @@
   "database": {
     "name": "profiles"
   },
+  "appearance": {
+    "style": {
+      "color": "#0D0A27",
+      "icon": "./icon.svg"
+    }
+  },
   "allOf": [
     { "$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json" },
     {

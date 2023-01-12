@@ -15,6 +15,20 @@
       "icon": "./icon.svg"
     }
   },
+  "layouts": {
+		"create": [
+			"customLinks",
+			"platformLinks",
+			"walletAddresses",
+      "featuredAssets"
+		],
+		"view": [
+			"customLinks",
+			"platformLinks",
+			"walletAddresses",
+			"featuredAssets"
+		]
+  },
   "allOf": [
     { "$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json" },
     {

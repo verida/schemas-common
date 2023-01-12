@@ -119,6 +119,10 @@
               "title": "Address",
               "type": "string"
             },
+            "label": {
+              "title": "Label",
+              "type": "string"
+            },
             "verificationProof": {
               "title": "Verification Proof",
               "type": "string"

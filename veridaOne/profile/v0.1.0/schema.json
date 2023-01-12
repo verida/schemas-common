@@ -40,11 +40,11 @@
           "minItems": 0,
           "uniqueItems": true
         },
-        "featuredCollectibles": {
-          "title": "Featured Collectibles",
+        "featuredAssets": {
+          "title": "Featured Assets",
           "type": "array",
           "items": {
-            "$ref": "#/$def/featuredCollectible"
+            "$ref": "#/$def/featuredAsset"
           },
           "minItems": 0,
           "uniqueItems": true
@@ -76,10 +76,10 @@
         "platformLink": {
           "type": "object",
           "properties": {
-						"category": {
+            "category": {
               "title": "Category",
               "type": "string",
-							"enum": ["social"]
+              "enum": ["social"]
             },
             "platform": {
               "title": "Platform",
@@ -95,25 +95,37 @@
             },
             "url": {
               "title": "URL",
-              "type": "string"
+              "type": "string",
+              "description": "External url to the platform"
             },
             "verificationProof": {
-              "title": "Verification Proof",
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "title": "Type",
+                  "Type": "string"
+                },
+                "proof": {
+                  "title": "Proof",
+                  "Type": "string"
+                }
+              },
+              "required": ["type", "proof"]
             },
             "order": {
               "title": "Order",
               "type": "integer"
             }
           },
-          "required": ["category", "platform", "account", "url", "order"]
+          "required": ["category", "platform", "accountId", "url", "order"]
         },
         "walletAddress": {
           "type": "object",
           "properties": {
-            "chain": {
-              "title": "Chain",
-              "type": "string"
+            "chainId": {
+              "title": "Chain Id",
+              "type": "string",
+              "description": "CAIP id of the blockchain"
             },
             "address": {
               "title": "Address",
@@ -124,22 +136,33 @@
               "type": "string"
             },
             "verificationProof": {
-              "title": "Verification Proof",
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "title": "Type",
+                  "Type": "string"
+                },
+                "proof": {
+                  "title": "Proof",
+                  "Type": "string"
+                }
+              },
+              "required": ["type", "proof"]
             },
             "order": {
               "title": "Order",
               "type": "integer"
             }
           },
-          "required": ["chain", "address", "order"]
+          "required": ["chainId", "address", "order"]
         },
-        "featuredCollectible": {
+        "featuredAsset": {
           "type": "object",
           "properties": {
-            "chain": {
-              "title": "Chain",
-              "type": "string"
+            "chainId": {
+              "title": "Chain Id",
+              "type": "string",
+              "description": "CAIP id of the blockchain"
             },
             "contractAddress": {
               "title": "Contract Address",
@@ -158,7 +181,7 @@
               "type": "integer"
             }
           },
-          "required": ["chain", "contractAddress", "tokenId", "ownerAddress", "order"]
+          "required": ["chainId", "contractAddress", "tokenId", "ownerAddress", "order"]
         }
       },
       "required": []

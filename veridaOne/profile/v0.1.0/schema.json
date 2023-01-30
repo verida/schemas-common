@@ -37,7 +37,7 @@
           "title": "Custom Links",
           "type": "array",
           "items": {
-            "$ref": "#/$def/customLink"
+            "$ref": "#/$defs/customLink"
           },
           "minItems": 0,
           "uniqueItems": true
@@ -46,7 +46,7 @@
           "title": "Platform Links",
           "type": "array",
           "items": {
-            "$ref": "#/$def/platformLink"
+            "$ref": "#/$defs/platformLink"
           },
           "minItems": 0,
           "uniqueItems": true
@@ -55,7 +55,7 @@
           "title": "Wallet Addresses",
           "type": "array",
           "items": {
-            "$ref": "#/$def/walletAddress"
+            "$ref": "#/$defs/walletAddress"
           },
           "minItems": 0,
           "uniqueItems": true
@@ -64,7 +64,7 @@
           "title": "Featured Assets",
           "type": "array",
           "items": {
-            "$ref": "#/$def/featuredAsset"
+            "$ref": "#/$defs/featuredAsset"
           },
           "minItems": 0,
           "uniqueItems": true

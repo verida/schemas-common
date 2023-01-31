@@ -1,210 +1,210 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://common.schemas.verida.io/veridaOne/profile/v0.1.0/schema.json",
-  "name": "https://common.schemas.verida.io/veridaOne/profile/v0.1.0/schema.json",
-  "title": "Verida One Profile",
-  "titlePlural": "Verida One Profiles",
-  "description": "Configuration of a profile on Verida One",
-  "type": "object",
-  "database": {
-    "name": "profiles"
-  },
-  "appearance": {
-    "style": {
-      "color": "#0D0A27",
-      "icon": "./icon.svg"
-    }
-  },
-  "layouts": {
-		"create": [
-			"customLinks",
-			"platformLinks",
-			"walletAddresses",
-      "featuredAssets"
-		],
-		"view": [
-			"customLinks",
-			"platformLinks",
-			"walletAddresses",
-			"featuredAssets"
-		]
-  },
-  "allOf": [
-    { "$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json" },
-    {
-      "properties": {
-        "customLinks": {
-          "title": "Custom Links",
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/customLink"
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://common.schemas.verida.io/veridaOne/profile/v0.1.0/schema.json",
+    "name": "https://common.schemas.verida.io/veridaOne/profile/v0.1.0/schema.json",
+    "title": "Verida One Profile",
+    "titlePlural": "Verida One Profiles",
+    "description": "Configuration of a profile on Verida One",
+    "type": "object",
+    "database": {
+      "name": "profiles"
+    },
+    "appearance": {
+      "style": {
+        "color": "#0D0A27",
+        "icon": "./icon.svg"
+      }
+    },
+    "layouts": {
+          "create": [
+              "customLinks",
+              "platformLinks",
+              "walletAddresses",
+        "featuredAssets"
+          ],
+          "view": [
+              "customLinks",
+              "platformLinks",
+              "walletAddresses",
+              "featuredAssets"
+          ]
+    },
+    "allOf": [
+      { "$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json" },
+      {
+        "properties": {
+          "customLinks": {
+            "title": "Custom Links",
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/customLink"
+            },
+            "minItems": 0,
+            "uniqueItems": true
           },
-          "minItems": 0,
-          "uniqueItems": true
+          "platformLinks": {
+            "title": "Platform Links",
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/platformLink"
+            },
+            "minItems": 0,
+            "uniqueItems": true
+          },
+          "walletAddresses": {
+            "title": "Wallet Addresses",
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/walletAddress"
+            },
+            "minItems": 0,
+            "uniqueItems": true
+          },
+          "featuredAssets": {
+            "title": "Featured Assets",
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/featuredAsset"
+            },
+            "minItems": 0,
+            "uniqueItems": true
+          }
         },
-        "platformLinks": {
-          "title": "Platform Links",
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/platformLink"
-          },
-          "minItems": 0,
-          "uniqueItems": true
-        },
-        "walletAddresses": {
-          "title": "Wallet Addresses",
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/walletAddress"
-          },
-          "minItems": 0,
-          "uniqueItems": true
-        },
-        "featuredAssets": {
-          "title": "Featured Assets",
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/featuredAsset"
-          },
-          "minItems": 0,
-          "uniqueItems": true
-        }
-      },
-      "$defs": {
+        "required": []
+      }
+    ],
+    "$defs": {
         "customLink": {
-          "type": "object",
-          "properties": {
+            "type": "object",
+            "properties": {
             "label": {
-              "title": "Label",
-              "type": "string"
+                "title": "Label",
+                "type": "string"
             },
             "url": {
-              "title": "URL",
-              "type": "string"
+                "title": "URL",
+                "type": "string"
             },
             "featured": {
-              "title": "Featured",
-              "type": "boolean"
+                "title": "Featured",
+                "type": "boolean"
             },
             "order": {
-              "title": "Order",
-              "type": "integer"
+                "title": "Order",
+                "type": "integer"
             }
-          },
-          "required": ["label", "url", "order"]
+            },
+            "required": ["label", "url", "order"]
         },
         "platformLink": {
-          "type": "object",
-          "properties": {
+            "type": "object",
+            "properties": {
             "category": {
-              "title": "Category",
-              "type": "string",
-              "enum": ["social"]
+                "title": "Category",
+                "type": "string",
+                "enum": ["social"]
             },
             "platform": {
-              "title": "Platform",
-              "type": "string"
+                "title": "Platform",
+                "type": "string"
             },
             "accountId": {
-              "title": "Account Id",
-              "type": "string"
+                "title": "Account Id",
+                "type": "string"
             },
-						"avatarUrl": {
-              "title": "Avatar URL",
-              "type": "string"
+                        "avatarUrl": {
+                "title": "Avatar URL",
+                "type": "string"
             },
             "url": {
-              "title": "URL",
-              "type": "string",
-              "description": "External url to the platform"
+                "title": "URL",
+                "type": "string",
+                "description": "External url to the platform"
             },
             "verificationProof": {
-              "type": "object",
-              "properties": {
+                "type": "object",
+                "properties": {
                 "type": {
-                  "title": "Type",
-                  "Type": "string"
+                    "title": "Type",
+                    "Type": "string"
                 },
                 "proof": {
-                  "title": "Proof",
-                  "Type": "string"
+                    "title": "Proof",
+                    "Type": "string"
                 }
-              },
-              "required": ["type", "proof"]
+                },
+                "required": ["type", "proof"]
             },
             "order": {
-              "title": "Order",
-              "type": "integer"
+                "title": "Order",
+                "type": "integer"
             }
-          },
-          "required": ["category", "platform", "accountId", "url", "order"]
+            },
+            "required": ["category", "platform", "accountId", "url", "order"]
         },
         "walletAddress": {
-          "type": "object",
-          "properties": {
+            "type": "object",
+            "properties": {
             "chainId": {
-              "title": "Chain Id",
-              "type": "string",
-              "description": "CAIP id of the blockchain"
+                "title": "Chain Id",
+                "type": "string",
+                "description": "CAIP id of the blockchain"
             },
             "address": {
-              "title": "Address",
-              "type": "string"
+                "title": "Address",
+                "type": "string"
             },
             "label": {
-              "title": "Label",
-              "type": "string"
+                "title": "Label",
+                "type": "string"
             },
             "verificationProof": {
-              "type": "object",
-              "properties": {
+                "type": "object",
+                "properties": {
                 "type": {
-                  "title": "Type",
-                  "Type": "string"
+                    "title": "Type",
+                    "Type": "string"
                 },
                 "proof": {
-                  "title": "Proof",
-                  "Type": "string"
+                    "title": "Proof",
+                    "Type": "string"
                 }
-              },
-              "required": ["type", "proof"]
+                },
+                "required": ["type", "proof"]
             },
             "order": {
-              "title": "Order",
-              "type": "integer"
+                "title": "Order",
+                "type": "integer"
             }
-          },
-          "required": ["chainId", "address", "order"]
+            },
+            "required": ["chainId", "address", "order"]
         },
         "featuredAsset": {
-          "type": "object",
-          "properties": {
+            "type": "object",
+            "properties": {
             "chainId": {
-              "title": "Chain Id",
-              "type": "string",
-              "description": "CAIP id of the blockchain"
+                "title": "Chain Id",
+                "type": "string",
+                "description": "CAIP id of the blockchain"
             },
             "contractAddress": {
-              "title": "Contract Address",
-              "type": "string"
+                "title": "Contract Address",
+                "type": "string"
             },
             "tokenId": {
-              "title": "Token Id",
-              "type": "string"
+                "title": "Token Id",
+                "type": "string"
             },
             "ownerAddress": {
-              "title": "Owner Address",
-              "type": "string"
+                "title": "Owner Address",
+                "type": "string"
             },
             "order": {
-              "title": "Order",
-              "type": "integer"
+                "title": "Order",
+                "type": "integer"
             }
-          },
-          "required": ["chainId", "contractAddress", "tokenId", "ownerAddress", "order"]
+            },
+            "required": ["chainId", "contractAddress", "tokenId", "ownerAddress", "order"]
         }
-      },
-      "required": []
     }
-  ]
-}
+  }

@@ -31,20 +31,18 @@
       },
       {
         "properties": {
-          "KYCAMLAttestation": {
-            "type": {
-              "title": "Type",
-              "const": "KYCAMLAttestation",
-              "type": "string"
-            },
-            "process": {
-              "title": "Process",
-              "type": "string"
-            },
-            "approvalDate": {
-              "title": "Approval date",
-              "type": "string"
-            }
+          "type": {
+            "title": "Type",
+            "const": "KYCAMLAttestation",
+            "type": "string"
+          },
+          "process": {
+            "title": "Process",
+            "type": "string"
+          },
+          "approvalDate": {
+            "title": "Approval date",
+            "type": "string"
           }
         },
         "required": ["type", "process", "approvalDate"]

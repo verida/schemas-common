@@ -1,7 +1,7 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://common.schemas.verida.io/identity/kyc/FinClusive/v0.1.0/schema.json",
-    "name": "https://common.schemas.verida.io/identity/kyc/FinClusive",
+    "$id": "https://common.schemas.verida.io/identity/kyc/FinClusive/individual/v0.1.0/schema.json",
+    "name": "https://common.schemas.verida.io/identity/kyc/FinClusive/individual",
     "title": "FinClusive: Individual KYC credential",
     "titlePlural": "FinClusive: Individual KYC credentials",
     "type": "object",

@@ -1,0 +1,81 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://common.schemas.verida.io/identity/kyc/FinClusive/v0.1.0/schema.json",
+    "name": "https://common.schemas.verida.io/identity/kyc/FinClusive",
+    "title": "FinClusive: Individual KYC credential",
+    "titlePlural": "FinClusive: Individual KYC credentials",
+    "type": "object",
+    "database": {
+      "name": "credential"
+    },
+    "layouts": {
+      "view": [
+        "firstName",
+        "lastName",
+        "dateOfBirth",
+        "streetAddress1",
+        "suburb",
+        "state",
+        "postcode",
+        "finClusiveId"
+      ],
+      "create": [
+        "firstName",
+        "lastName",
+        "gender",
+        "dateOfBirth",
+        "streetAddress1",
+        "suburb",
+        "state",
+        "postcode",
+        "finClusiveId"
+      ]
+    },
+    "allOf": [
+      {
+        "$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json"
+      },
+      {
+        "$ref": "https://common.schemas.verida.io/credential/base/v0.1.0/schema.json"
+      },
+      {
+        "properties": {
+          "finClusiveId": {
+            "title": "FinClusiveId",
+            "type": "string"
+          },
+          "firstName": {
+            "title": "First Name",
+            "type": "string"
+          },
+          "lastName": {
+            "title": "Last Name",
+            "type": "string"
+          },
+          "streetAddress1": {
+            "title": "Street Address",
+            "type": "string"
+          },
+          "suburb": {
+            "title": "Suburb",
+            "type": "string"
+          },
+          "state": {
+            "title": "State",
+            "type": "string"
+          },
+          "postcode": {
+            "title": "Post Code",
+            "type": "string"
+          },
+          "dateOfBirth": {
+            "title": "Date of Birth",
+            "type": "string",
+            "format": "date",
+            "description": "YYYY-MM-DD"
+          }
+        },
+        "required": ["firstName"]
+      }
+    ]
+  }

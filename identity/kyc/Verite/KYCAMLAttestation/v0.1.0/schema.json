@@ -10,22 +10,17 @@
     },
     "layouts": {
       "view": [
-        "name",
         "type",
         "process",
         "approvalDate"
       ],
       "create": [
-        "name",
         "type",
         "process",
         "approvalDate"
       ]
     },
     "allOf": [
-      {
-        "$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json"
-      },
       {
         "$ref": "https://common.schemas.verida.io/credential/base/v0.1.0/schema.json"
       },

@@ -5,9 +5,6 @@
     "title": "Verite: KYC / AML Attestation",
     "titlePlural": "Verite: KYC / AML Attestations",
     "type": "object",
-    "database": {
-      "name": "credential"
-    },
     "layouts": {
       "view": [
         "type",

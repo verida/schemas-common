@@ -5,9 +5,6 @@
     "titlePlural": "Identifiable Pathology Tests",
     "type": "object",
     "color": "#FD4F64",
-    "database": {
-        "name": "credential"
-    },
     "properties": {
         "fullName": {
             "title": "Full name",

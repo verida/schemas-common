@@ -5,6 +5,9 @@
     "title": "FinClusive: Basic Individual KYC",
     "titlePlural": "FinClusive: Basic Individual KYC",
     "type": "object",
+    "veridaProofs": {
+        "finclusive/individual-kyc": ["finclusive/individual-basic-kyc", "$finClusiveId"]
+    },
     "layouts": {
       "view": [
         "firstName",

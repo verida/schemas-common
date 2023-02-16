@@ -4,32 +4,22 @@
   "title": "Glucose (Fasting) Test",
   "titlePlural": "Glucose (Fasting) Tests",
   "type": "object",
-  "layouts": {
-    "view": [
-      "fullName",
-      "dateOfBirth",
-      "testTimestamp",
-      "result",
-      "acceptable"
-    ],
-    "create": [
-      "fullName",
-      "dateOfBirth",
-      "patientId",
-      "testTimestamp",
-      "result",
-      "acceptable"
-    ]
-  },
-  "properties": {
-    "result": {
-      "title": "Result (mg/dL)",
-      "type": "integer"
+  "allOf": [
+    {
+      "$ref": "https://common.schemas.verida.io/health/pathology/identifiable/v0.1.0/schema.json"
     },
-    "acceptable": {
-      "title": "Acceptable range?",
-      "type": "string",
-      "enum": ["Yes", "No"]
+    {
+      "properties": {
+        "result": {
+          "title": "Result (mg/dL)",
+          "type": "integer"
+        },
+        "acceptable": {
+          "title": "Acceptable range?",
+          "type": "string",
+          "enum": ["Yes", "No"]
+        }
+      }
     }
-  }
+  ]
 }

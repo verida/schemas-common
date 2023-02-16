@@ -5,6 +5,9 @@
     "title": "Verite: KYC / AML Attestation",
     "titlePlural": "Verite: KYC / AML Attestations",
     "type": "object",
+    "veridaProofs": {
+      "uniqueId": ["$type", "$process", "$approvalDate"]
+    },
     "layouts": {
       "view": [
         "type",

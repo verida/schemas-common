@@ -1,38 +1,21 @@
 {
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://common.schemas.verida.io/health/pathology/tests/covid19/pcr/v0.1.0/schema.json",
-    "title": "COVID19 (PCR) Test",
-    "titlePlural": "COVID19 (PCR) Tests",
-    "type": "object",
-    "database": {
-        "name": "credential"
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://common.schemas.verida.io/health/pathology/tests/covid19/pcr/v0.1.0/schema.json",
+  "title": "COVID19 (PCR) Test",
+  "titlePlural": "COVID19 (PCR) Tests",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://common.schemas.verida.io/health/pathology/identifiable/v0.1.0/schema.json"
     },
-    "layouts": {
-        "create": [
-            "fullName",
-            "dateOfBirth",
-            "patientId",
-            "result"
-        ],
-        "view": [
-            "fullName",
-            "dateOfBirth",
-            "testTimestamp",
-            "result"
-        ]
-    },
-    "allOf": [
-        { "$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json" },
-        { "$ref": "https://common.schemas.verida.io/credential/base/v0.1.0/schema.json"},
-        {"$ref": "https://common.schemas.verida.io/health/pathology/identifiable/v0.1.0/schema.json"},
-        {
-            "properties": {
-                "result": {
-                    "title": "Result",
-                    "type": "string",
-                    "enum": ["Positive", "Negative"]
-                }
-            }
+    {
+      "properties": {
+        "result": {
+          "title": "Result",
+          "type": "string",
+          "enum": ["Positive", "Negative"]
         }
-    ]
-  }
+      }
+    }
+  ]
+}

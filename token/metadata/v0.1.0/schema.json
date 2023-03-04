@@ -1,0 +1,97 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://common.schemas.verida.io/token/metadata/v0.1.0/schema.json",
+    "name": "https://common.schemas.verida.io/token/metadata",
+    "title": "Token metadata",
+    "titlePlural": "Token metadata",
+    "description": "Structure based on OpenSea metadata standards (https://docs.opensea.io/docs/metadata-standards)",
+    "type": "object",
+    "database": {
+        "name": "token_metadata_public"
+      },
+    "layouts": {
+      "view": [
+        "name",
+        "description",
+        "image"
+      ],
+      "create": [
+        "name",
+        "description",
+        "image"
+      ]
+    },
+    "properties": {
+        "allOf": [
+            { "$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json" },,
+            {
+                "image": {
+                    "title": "Image URL",
+                    "description": "URL of an image representing this credential",
+                    "type": "string"
+                },
+                "image_data": {
+                    "title": "Image URL",
+                    "description": "URL of an image representing this credential",
+                    "type": "string"
+                },
+                "external_url": {
+                    "title": "External URL",
+                    "description": "An external URL with more info (ie: twitter account page)",
+                    "type": "string"
+                },
+                "name": {
+                    "title": "Name",
+                    "description": "Unique name of this credential",
+                    "type": "string"
+                },
+                "attributes": {
+                    "title": "Attributes",
+                    "description": "Additional attributes for this credential",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/attribute"
+                    },
+                    "minItems": 0,
+                    "uniqueItems": true
+                },
+                "description": {
+                    "title": "Description",
+                    "description": "Description of this credential",
+                    "type": "string"
+                },
+                "background_color": {
+                    "title": "Background color",
+                    "description": "Six character hexadecimal without # prefix",
+                    "type": "string"
+                },
+                "animation_url": {
+                    "title": "Animation URL",
+                    "description": "A URL to a multi-media attachment for the item.",
+                    "type": "string"
+                },
+                "youtube_url": {
+                    "title": "Youtube URL",
+                    "description": "A URL to a Youtube video",
+                    "type": "string"
+                }
+            }
+        ]
+    },
+    "defs": {
+        "attribute": {
+            "type": "object",
+            "properties": {
+                "trait_type": {
+                    "title": "Trait type",
+                    "type": "string"
+                },
+                "value": {
+                    "title": "Value",
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "required": ["name"]
+  }

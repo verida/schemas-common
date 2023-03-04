@@ -4,6 +4,7 @@
     "name": "https://common.schemas.verida.io/token/metadata",
     "title": "Token metadata",
     "titlePlural": "Token metadata",
+    "description": "Structure based on OpenSea metadata standards (https://docs.opensea.io/docs/metadata-standards)",
     "type": "object",
     "database": {
         "name": "token_metadata_public"

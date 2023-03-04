@@ -22,7 +22,7 @@
       ]
     },
     "allOf": [
-        { "$ref": "https://common.schemas.verida.io/token/metadata/v0.1.0/schema.json" },
+        { "$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json" },
         { "$ref": "https://common.schemas.verida.io/token/sbt/credential/v0.1.0/schema.json"},
         {
             "properties": {

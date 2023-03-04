@@ -1,0 +1,39 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://common.schemas.verida.io/token/sbt/storage/v0.1.0/schema.json",
+    "name": "https://common.schemas.verida.io/token/sbt/storage",
+    "title": "Soulbound token metadata",
+    "titlePlural": "Soulbound token metadata",
+    "description": "Self-sovereign storage of Soulbound token metadata",
+    "type": "object",
+    "database": {
+        "name": "token_metadata_public"
+    },
+    "layouts": {
+      "view": [
+        "name",
+        "description",
+        "image"
+      ],
+      "create": [
+        "name",
+        "description",
+        "image"
+      ]
+    },
+    "properties": {
+        "allOf": [
+            { "$ref": "https://common.schemas.verida.io/token/metadata/v0.1.0/schema.json" },
+            { "$ref": "https://common.schemas.verida.io/token/sbt/credential/v0.1.0/schema.json"},
+            {
+                "properties": {
+                    "didJwtVc": {
+                        "title": "DID-JWT Verifiable Credential",
+                        "description": "DID JWT of this credential",
+                        "type": "string"
+                    }
+                }
+            }
+        ]
+    }
+  }

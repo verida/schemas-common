@@ -17,7 +17,14 @@
         "suburb",
         "state",
         "postcode",
-        "finClusiveId"
+        "finClusiveId",
+        "complianceProfileLevel",
+        "complianceStatus",
+        "creationDate",
+        "updatedDate",
+        "validUntil",
+        "revocationDate",
+        "finClusiveComplianceApiUrl"
       ],
       "create": [
         "firstName",
@@ -28,7 +35,14 @@
         "suburb",
         "state",
         "postcode",
-        "finClusiveId"
+        "finClusiveId",
+        "complianceProfileLevel",
+        "complianceStatus",
+        "creationDate",
+        "updatedDate",
+        "validUntil",
+        "revocationDate",
+        "finClusiveComplianceApiUrl"
       ]
     },
     "properties": {
@@ -65,6 +79,42 @@
         "type": "string",
         "format": "date",
         "description": "YYYY-MM-DD"
+      },
+      "complianceProfileLevel": {
+        "title": "Compliance Profile Level",
+        "type": "string"
+      },
+      "complianceStatus": {
+        "title": "Compliance Status",
+        "type": "string"
+      },
+      "creationDate": {
+        "title": "Creation Date",
+        "type": "string",
+        "format": "date",
+        "description": "YYYY-MM-DD"
+      },
+      "updatedDate": {
+        "title": "Updated Date",
+        "type": "string",
+        "format": "date",
+        "description": "YYYY-MM-DD"
+      },
+      "validUntil": {
+        "title": "Valid Until",
+        "type": "string",
+        "format": "date",
+        "description": "YYYY-MM-DD"
+      },
+      "revocationDate": {
+        "title": "Revocation Date",
+        "type": "string",
+        "format": "date",
+        "description": "YYYY-MM-DD"
+      },
+      "finClusiveComplianceApiUrl": {
+        "title": "FinClusive Compliance Api Url",
+        "type": "string"
       }
     },
     "required": ["firstName"]

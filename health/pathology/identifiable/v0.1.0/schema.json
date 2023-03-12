@@ -5,6 +5,14 @@
     "titlePlural": "Identifiable Pathology Tests",
     "type": "object",
     "color": "#FD4F64",
+    "layouts": {
+        "view": [
+            "fullName",
+            "dateOfBirth",
+            "patientId",
+            "testTimestamp"
+        ]
+    },
     "properties": {
         "fullName": {
             "title": "Full name",

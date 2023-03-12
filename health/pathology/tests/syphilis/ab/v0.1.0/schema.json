@@ -4,6 +4,15 @@
   "title": "Syphilis (AB) Test",
   "titlePlural": "Syphilis (AB) Tests",
   "type": "object",
+  "layouts": {
+    "view": [
+        "fullName",
+        "dateOfBirth",
+        "patientId",
+        "testTimestamp",
+        "result"
+    ]
+},
   "allOf": [
     {
       "$ref": "https://common.schemas.verida.io/health/pathology/identifiable/v0.1.0/schema.json"

@@ -4,6 +4,16 @@
   "title": "Haemoglobin Test",
   "titlePlural": "Haemoglobin Tests",
   "type": "object",
+  "layouts": {
+    "view": [
+        "fullName",
+        "dateOfBirth",
+        "patientId",
+        "testTimestamp",
+        "result",
+        "acceptable"
+    ]
+},
   "allOf": [
     {
       "$ref": "https://common.schemas.verida.io/health/pathology/identifiable/v0.1.0/schema.json"

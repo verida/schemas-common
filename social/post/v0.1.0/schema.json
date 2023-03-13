@@ -14,6 +14,10 @@
     "database": {
         "name": "social_post",
         "indexes": {
+            "name": ["name"],
+            "content": ["content"],
+            "insertedAt": ["insertedAt"],
+            "source": ["sourceApplication", "sourceId"]
         }
     },
     "layouts": {

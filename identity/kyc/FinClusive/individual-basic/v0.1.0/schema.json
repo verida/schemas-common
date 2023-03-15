@@ -21,9 +21,7 @@
         "complianceProfileLevel",
         "complianceStatus",
         "creationDate",
-        "updatedDate",
         "validUntil",
-        "revocationDate",
         "finClusiveComplianceApiUrl"
       ],
       "create": [
@@ -39,9 +37,7 @@
         "complianceProfileLevel",
         "complianceStatus",
         "creationDate",
-        "updatedDate",
         "validUntil",
-        "revocationDate",
         "finClusiveComplianceApiUrl"
       ]
     },
@@ -94,20 +90,8 @@
         "format": "date",
         "description": "YYYY-MM-DD"
       },
-      "updatedDate": {
-        "title": "Updated Date",
-        "type": "string",
-        "format": "date",
-        "description": "YYYY-MM-DD"
-      },
       "validUntil": {
         "title": "Valid Until",
-        "type": "string",
-        "format": "date",
-        "description": "YYYY-MM-DD"
-      },
-      "revocationDate": {
-        "title": "Revocation Date",
         "type": "string",
         "format": "date",
         "description": "YYYY-MM-DD"

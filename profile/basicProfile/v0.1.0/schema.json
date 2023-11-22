@@ -27,6 +27,12 @@
             "minLength": 2,
             "maxLength": 140
         },
+        "website": {
+            "type": "string",
+            "description": "Website URL",
+            "minLength": 12,
+            "maxLength": 253
+        },
         "avatar": {
             "type": "object",
             "description": "Profile image for the profile",

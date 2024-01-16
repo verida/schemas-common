@@ -52,7 +52,7 @@
                     "type": "object"
                 }
             },
-            "required": ["name", "uri"]
+            "required": ["name"]
         }
     ]
   }

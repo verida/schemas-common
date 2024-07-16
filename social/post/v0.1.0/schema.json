@@ -39,6 +39,12 @@
         {"$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json"},
         {
             "properties": {
+                "type": {
+                    "title": "Type",
+                    "description": "Type of post",
+                    "type": "string",
+                    "enum": ["link", "status", "photo", "video", "event", "offer", "question", "note", "album", "life_event"]
+                },
                 "content": {
                     "title": "Content",
                     "description": "Content of the post",

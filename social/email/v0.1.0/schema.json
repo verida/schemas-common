@@ -1,0 +1,125 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://common.schemas.verida.io/social/email/v0.1.0/schema.json",
+    "title": "Email",
+    "titlePlural": "Emails",
+    "description": "Email message",
+    "type": "object",
+    "appearance": {
+        "style": {
+            "color": "#FD4F64",
+            "icon": "./icon.svg"
+        }
+    },
+    "database": {
+        "name": "social_email",
+        "indexes": {
+            "name": [
+                "name"
+            ],
+            "from": [
+                "from.email"
+            ],
+            "message": [
+                "message.text"
+            ],
+            "sentAt": [
+                "sentAt"
+            ],
+            "source": [
+                "sourceApplication"
+            ]
+        }
+    },
+    "layouts": {
+        "create": [
+            "name",
+            "from.name",
+            "from.email"
+        ],
+        "view": [
+            "name",
+            "from.name",
+            "from.email",
+            "sourceApplication",
+            "sourceId",
+            "insertedAt"
+        ]
+    },
+    "allOf": [
+        {
+            "$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json"
+        },
+        {
+            "properties": {
+                "name": {
+                    "title": "Name",
+                    "description": "Email subject",
+                    "type": "string"
+                },
+                "from": {
+                    "title": "Content",
+                    "description": "Content of the post",
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "title": "From Name",
+                            "description": "Name of email sender",
+                            "type": "string"
+                        },
+                        "email": {
+                            "title": "From Email",
+                            "description": "Email address of sender",
+                            "type": "string"
+                        }
+                    }
+                },
+                "message": {
+                    "title": "Message",
+                    "description": "Message content of the meail",
+                    "type": "object",
+                    "properties": {
+                        "text": {},
+                        "html": {}
+                    }
+                },
+                "attachments": {
+                    "title": "Attachments",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "filename": {
+                                "type": "string"
+                            },
+                            "content": {
+                                "type": "string"
+                            },
+                            "uri": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "filename",
+                            "content"
+                        ]
+                    }
+                },
+                "sentAt": {
+                    "title": "Source data",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "sourceData": {
+                    "title": "Source data",
+                    "type": "object"
+                }
+            },
+            "required": [
+                "name",
+                "from",
+                "message"
+            ]
+        }
+    ]
+}

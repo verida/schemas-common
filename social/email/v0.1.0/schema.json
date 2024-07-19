@@ -18,10 +18,10 @@
                 "name"
             ],
             "from": [
-                "from.email"
+                "fromEmail"
             ],
             "message": [
-                "message.text"
+                "messageText"
             ],
             "sentAt": [
                 "sentAt"
@@ -34,13 +34,13 @@
     "layouts": {
         "create": [
             "name",
-            "from.name",
-            "from.email"
+            "fromName",
+            "fromEmail"
         ],
         "view": [
             "name",
-            "from.name",
-            "from.email",
+            "fromName",
+            "fromEmail",
             "sourceApplication",
             "sourceId",
             "insertedAt"
@@ -57,31 +57,25 @@
                     "description": "Email subject",
                     "type": "string"
                 },
-                "from": {
-                    "title": "Content",
-                    "description": "Content of the post",
-                    "type": "object",
-                    "properties": {
-                        "name": {
-                            "title": "From Name",
-                            "description": "Name of email sender",
-                            "type": "string"
-                        },
-                        "email": {
-                            "title": "From Email",
-                            "description": "Email address of sender",
-                            "type": "string"
-                        }
-                    }
+                "fromName": {
+                    "title": "From Name",
+                    "description": "Name of email sender",
+                    "type": "string"
                 },
-                "message": {
-                    "title": "Message",
-                    "description": "Message content of the meail",
-                    "type": "object",
-                    "properties": {
-                        "text": {},
-                        "html": {}
-                    }
+                "fromEmail": {
+                    "title": "From Email",
+                    "description": "Email address of sender",
+                    "type": "string"
+                },
+                "messageText": {
+                    "title": "Message (Text)",
+                    "description": "Message content of the email as text",
+                    "type": "string"
+                },
+                "messageHTML": {
+                    "title": "Message (HTML)",
+                    "description": "Message content of the email as HTML",
+                    "type": "string"
                 },
                 "attachments": {
                     "title": "Attachments",

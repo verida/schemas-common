@@ -126,8 +126,8 @@
                 "type",
                 "fromEmail",
                 "toEmail",
-                "sentAt",
-                "message"
+                "messageText",
+                "sentAt"
             ]
         }
     ]

@@ -57,6 +57,12 @@
                     "description": "Email subject",
                     "type": "string"
                 },
+                "type": {
+                    "title": "Type",
+                    "description": "Type of message (send, receive)",
+                    "type": "string",
+                    "enum": ["send", "receive"]
+                },
                 "fromName": {
                     "title": "From Name",
                     "description": "Name of email sender",
@@ -83,10 +89,16 @@
                     "items": {
                         "type": "object",
                         "properties": {
+                            "id": {
+                                "type": "string"
+                            },
                             "filename": {
                                 "type": "string"
                             },
-                            "content": {
+                            "data": {
+                                "type": "string"
+                            },
+                            "textContent": {
                                 "type": "string"
                             },
                             "uri": {

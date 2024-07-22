@@ -123,7 +123,10 @@
             },
             "required": [
                 "name",
-                "from",
+                "type",
+                "fromEmail",
+                "toEmail",
+                "sentAt",
                 "message"
             ]
         }

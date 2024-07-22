@@ -106,8 +106,9 @@
                             }
                         },
                         "required": [
+                            "id",
                             "filename",
-                            "content"
+                            "textContent"
                         ]
                     }
                 },

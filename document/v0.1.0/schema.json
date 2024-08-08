@@ -1,0 +1,70 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://common.schemas.verida.io/document/v0.1.0/schema.json",
+    "title": "Document",
+    "titlePlural": "Documents",
+    "description": "A document",
+    "type": "object",
+    "appearance": {
+        "style": {
+            "color": "#FD4F64",
+            "icon": "./icon.svg"
+        }
+    },
+    "database": {
+        "name": "document",
+        "indexes": {
+            "name": ["name", "type", "insertedAt"],
+            "insertedAt": ["insertedAt"],
+            "source": ["sourceApplication", "sourceId"]
+        }
+    },
+    "layouts": {
+        "create": [
+            "name",
+            "description",
+            "uri"
+        ],
+        "view": [
+            "name",
+            "description",
+            "type",
+            "size",
+            "insertedAt"
+        ]
+    },
+    "allOf": [
+        {"$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json"},
+        {
+            "properties": {
+                "type": {
+                    "title": "Type",
+                    "type": "string",
+                    "enum": ["txt", "pdf", "doc", "docx", "xls", "xlsx", "ppt", "pptx", "other"],
+                    "description": "Type of the document"
+                },
+                "size": {
+                    "title": "Size",
+                    "type": "integer",
+                    "description": "Size of the document in bytes"
+                },
+                "contentText": {
+                    "title": "Content (Text)",
+                    "type": "string",
+                    "description": "Text content of the document"
+                },
+                "contentRaw": {
+                    "title": "Content",
+                    "type": "string",
+                    "description": "Base64 encoded content of the document (optional)"
+                },
+                "uri": {
+                    "title": "URI",
+                    "type": "string",
+                    "description": "External link to the document (optional)"
+                }
+            },
+            "required": ["name", "contentText", "type"]
+        }
+    ]
+  }

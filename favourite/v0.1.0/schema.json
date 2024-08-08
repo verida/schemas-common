@@ -1,0 +1,63 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://common.schemas.verida.io/favourite/v0.1.0/schema.json",
+    "title": "Favourite",
+    "titlePlural": "Favourites",
+    "description": "Favourite links across all platforms",
+    "type": "object",
+    "appearance": {
+        "style": {
+            "color": "#FD4F64",
+            "icon": "./icon.svg"
+        }
+    },
+    "database": {
+        "name": "favourite",
+        "indexes": {
+            "name": ["name", "contentType", "insertedAt"],
+            "insertedAt": ["insertedAt"],
+            "source": ["sourceApplication", "sourceId"]
+        }
+    },
+    "layouts": {
+        "create": [
+            "name",
+            "description",
+            "uri"
+        ],
+        "view": [
+            "name",
+            "favouriteType",
+            "contentType",
+            "description",
+            "uri",
+            "sourceApplication",
+            "sourceId",
+            "insertedAt"
+        ]
+    },
+    "allOf": [
+        {"$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json"},
+        {
+            "properties": {
+                "favouriteType": {
+                    "title": "Favourite Type",
+                    "description": "Type of post",
+                    "type": "string",
+                    "enum": ["like", "favourite", "recommendation", "share"]
+                },
+                "contentType": {
+                    "title": "Content Type",
+                    "description": "Type of post",
+                    "type": "string",
+                    "enum": ["video", "audio", "document", "webpage"]
+                },
+                "uri": {
+                    "title": "URI",
+                    "type": "string"
+                }
+            },
+            "required": ["name", "favouriteType", "contentType", "uri"]
+        }
+    ]
+  }

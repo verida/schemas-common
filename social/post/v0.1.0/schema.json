@@ -43,7 +43,7 @@
                     "title": "Type",
                     "description": "Type of post",
                     "type": "string",
-                    "enum": ["link", "status", "photo", "video", "event", "offer", "question", "note", "album", "life_event"]
+                    "enum": ["link", "status", "photo", "video", "music", "event", "offer", "question", "note", "album", "life_event"]
                 },
                 "content": {
                     "title": "Content",

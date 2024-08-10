@@ -44,7 +44,7 @@
                 "uri": {
                     "title": "URI",
                     "type": "string"
-                },
+                }
             },
             "required": ["name"]
         }

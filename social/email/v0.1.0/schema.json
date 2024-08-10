@@ -14,20 +14,11 @@
     "database": {
         "name": "social_email",
         "indexes": {
-            "name": [
-                "name"
-            ],
             "from": [
                 "fromEmail"
             ],
-            "message": [
-                "messageText"
-            ],
             "sentAt": [
                 "sentAt"
-            ],
-            "source": [
-                "sourceApplication"
             ]
         }
     },
@@ -116,10 +107,6 @@
                     "title": "Source data",
                     "type": "string",
                     "format": "date-time"
-                },
-                "sourceData": {
-                    "title": "Source data",
-                    "type": "object"
                 }
             },
             "required": [

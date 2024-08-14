@@ -35,15 +35,19 @@
         {"$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json"},
         {
             "properties": {
-                "type": {
-                    "title": "Type",
-                    "description": "Type of chat group",
-                    "type": "string",
-                    "enum": [""]
-                },
                 "uri": {
                     "title": "URI",
                     "type": "string"
+                },
+                "newestId": {
+                    "title": "Newest ID",
+                    "type": "string",
+                    "description": "ID of the newest message"
+                },
+                "syncData": {
+                    "title": "Sync Data",
+                    "type": "string",
+                    "description": "Data to help co-ordinating the sync of messages in this group"
                 }
             },
             "required": ["name"]

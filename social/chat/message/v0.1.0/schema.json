@@ -14,7 +14,8 @@
     "database": {
         "name": "social_chat_message",
         "indexes": {
-            "chatGroupId": ["chatGroupId", "sentAt"]
+            "chatGroupId": ["chatGroupId", "sentAt"],
+            "insertedAt": ["insertedAt"]
         }
     },
     "layouts": {

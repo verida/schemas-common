@@ -19,7 +19,8 @@
             ],
             "sentAt": [
                 "sentAt"
-            ]
+            ],
+            "source": ["sourceApplication", "sourceId"]
         }
     },
     "layouts": {

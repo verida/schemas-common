@@ -14,7 +14,9 @@
     "database": {
         "name": "social_chat_message",
         "indexes": {
-            "chatGroupId": ["chatGroupId", "sentAt"]
+            "source": ["sourceApplication", "sourceId"],
+            "chatGroupId": ["chatGroupId", "sentAt"],
+            "insertedAt": ["insertedAt"]
         }
     },
     "layouts": {
@@ -61,7 +63,7 @@
                     "type": "string"
                 },
                 "sentAt": {
-                    "title": "Source data",
+                    "title": "Sent at",
                     "type": "string",
                     "format": "date-time"
                 }

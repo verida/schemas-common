@@ -36,8 +36,12 @@
         {"$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json"},
         {
             "properties": {
-                "chatGroupId": {
+                "groupId": {
                     "title": "Chat Group ID",
+                    "type": "string"
+                },
+                "groupName": {
+                    "title": "Chat Group Name",
                     "type": "string"
                 },
                 "type": {
@@ -72,7 +76,7 @@
                     "format": "date-time"
                 }
             },
-            "required": ["name", "chatGroupId", "type", "messageText", "senderId", "sentAt"]
+            "required": ["name", "groupId", "type", "messageText", "senderId", "sentAt"]
         }
     ]
   }

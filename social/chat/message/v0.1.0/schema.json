@@ -54,12 +54,16 @@
                     "title": "Message (HTML)",
                     "type": "string"
                 },
-                "senderId": {
-                    "title": "Sender ID",
+                "fromId": {
+                    "title": "From ID",
                     "type": "string"
                 },
-                "senderHandle": {
-                    "title": "Sender Handle",
+                "fromHandle": {
+                    "title": "From Handle",
+                    "type": "string"
+                },
+                "fromName": {
+                    "title": "From Name",
                     "type": "string"
                 },
                 "sentAt": {

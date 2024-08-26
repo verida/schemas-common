@@ -15,8 +15,10 @@
         "name": "social_chat_message",
         "indexes": {
             "source": ["sourceApplication", "sourceId"],
-            "chatGroupId": ["chatGroupId", "sentAt"],
-            "insertedAt": ["insertedAt"]
+            "chatGroupId": ["chatGroupId"],
+            "sentAt": [
+                "sentAt"
+            ]
         }
     },
     "layouts": {

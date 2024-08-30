@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://common.schemas.example.com/calendar/v0.1.0/schema.json",
+  "title": "Calendar",
+  "titlePlural": "Calendars",
+  "description": "Google Calendar information",
+  "type": "object",
+  "appearance": {
+    "style": {
+      "color": "#42A5F5",
+      "icon": "./calendar-icon.svg"
+    }
+  },
+  "database": {
+    "name": "calendar_data",
+    "indexes": {
+      "id": [
+        "id"
+      ],
+      "summary": [
+        "summary"
+      ],
+      "timeZone": [
+        "timeZone"
+      ]
+    }
+  },
+  "layouts": {
+    "create": [
+      "summary",
+      "description",
+      "location",
+      "timeZone"
+    ],
+    "view": [
+      "id",
+      "summary",
+      "description",
+      "location",
+      "timeZone"
+    ]
+  },
+  "allOf": [
+    {
+      "properties": {
+        "id": {
+          "title": "ID",
+          "description": "Unique identifier for the calendar",
+          "type": "string"
+        },
+        "summary": {
+          "title": "Summary",
+          "description": "Summary or title of the calendar",
+          "type": "string"
+        },
+        "description": {
+          "title": "Description",
+          "description": "Description of the calendar",
+          "type": "string"
+        },
+        "location": {
+          "title": "Location",
+          "description": "Location associated with the calendar",
+          "type": "string"
+        },
+        "timeZone": {
+          "title": "Time Zone",
+          "description": "Time zone of the calendar",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "summary",
+        "timeZone"
+      ]
+    }
+  ]
+}

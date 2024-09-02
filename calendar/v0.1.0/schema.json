@@ -1,0 +1,64 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://common.schemas.example.com/calendar/v0.1.0/schema.json",
+    "title": "Calendar",
+    "titlePlural": "Calendars",
+    "description": "Calendar information",
+    "type": "object",
+    "appearance": {
+        "style": {
+            "color": "#42A5F5",
+            "icon": "./calendar-icon.svg"
+        }
+    },
+    "database": {
+        "name": "calendar_data",
+        "indexes": {
+            "name": [
+                "name"
+            ],
+            "insertedAt": [
+                "insertedAt"
+            ],
+            "source": [
+                "sourceApplication",
+                "sourceId"
+            ]
+        }
+    },
+    "layouts": {
+        "create": [
+            "name",
+            "location"
+        ],
+        "view": [
+            "name",
+            "description",
+            "location",
+            "insertedAt"
+        ]
+    },
+    "allOf": [
+        {
+            "$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json"
+        },
+        {
+            "properties": {
+                "description": {
+                    "title": "Description",
+                    "description": "Description of the calendar",
+                    "type": "string"
+                },
+                "location": {
+                    "title": "Location",
+                    "description": "Location associated with the calendar",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name",
+                "location"
+            ]
+        }
+    ]
+}

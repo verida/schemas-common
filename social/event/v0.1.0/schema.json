@@ -14,14 +14,14 @@
         "name": "social_event",
         "indexes": {
             "name": ["name"],
-            "startTime": ["start.dateTime", "start.date"],
-            "endTime": ["end.dateTime", "end.date"],
+            "startTime": ["start.date"],
+            "endTime": ["end.date"],
             "source": ["sourceApplication", "sourceId"]
         }
     },
     "layouts": {
-        "create": ["name", "start", "end", "location"],
-        "view": ["name", "description", "start", "end", "location", "organizer", "attendees", "status"]
+        "create": ["name", "start.date", "end.date", "location"],
+        "view": ["name", "description", "start.date", "end.date", "location", "organizer", "attendees", "status"]
     },
     "allOf": [
         {
@@ -69,7 +69,10 @@
                             "format": "date"
                         },
                         "timeZone": {
-                            "type": "string"
+                            "type": "string",
+                            "description": "UTC offset format",
+                            "pattern": "^([+-](?:2[0-3]|[01][0-9]):[0-5][0-9])$",
+                            "example": "+02:30"                        
                         }
                     }
                 },
@@ -87,7 +90,10 @@
                             "format": "date"
                         },
                         "timeZone": {
-                            "type": "string"
+                            "type": "string",
+                            "description": "UTC offset format",
+                            "pattern": "^([+-](?:2[0-3]|[01][0-9]):[0-5][0-9])$",
+                            "example": "+02:30"                        
                         }
                     }
                 },
@@ -132,7 +138,7 @@
                     }
                 }
             },
-            "required": ["name", "start", "end"]
+            "required": ["name", "start.date", "end.date"]
         }
     ]
 }

@@ -48,12 +48,12 @@
                 "creator": {
                     "title": "Creator",
                     "description": "Details of the event creator",
-                    "$ref": "https://common.schemas.example.com/profile/person/v0.1.0/schema.json"
+                    "$ref": "#/$defs/person"
                 },
                 "organizer": {
                     "title": "Organizer",
                     "description": "Details of the event organizer",
-                    "$ref": "https://common.schemas.example.com/profile/person/v0.1.0/schema.json"
+                    "$ref": "#/$defs/person"
                 },
                 "start": {
                     "title": "Start",
@@ -72,7 +72,7 @@
                             "type": "string",
                             "description": "UTC offset format",
                             "pattern": "^([+-](?:2[0-3]|[01][0-9]):[0-5][0-9])$",
-                            "example": "+02:30"                        
+                            "example": "+02:30"
                         }
                     }
                 },
@@ -93,7 +93,7 @@
                             "type": "string",
                             "description": "UTC offset format",
                             "pattern": "^([+-](?:2[0-3]|[01][0-9]):[0-5][0-9])$",
-                            "example": "+02:30"                        
+                            "example": "+02:30"
                         }
                     }
                 },
@@ -102,7 +102,7 @@
                     "description": "List of attendees for the event",
                     "type": "array",
                     "items": {
-                        "$ref": "https://common.schemas.example.com/person/v0.1.0/schema.json"
+                        "$ref": "#/$defs/person"
                     }
                 },
                 "conferenceData": {
@@ -140,5 +140,24 @@
             },
             "required": ["name", "start.date", "end.date"]
         }
-    ]
+    ],
+    "$defs": {
+        "person": {
+            "type": "object",
+            "title": "Person",
+            "description": "Schema representing a person",
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "format": "email",
+                    "description": "Email address of the person"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "Display name of the person"
+                }
+            },
+            "required": ["email"]
+        }
+    }
 }

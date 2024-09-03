@@ -20,8 +20,8 @@
         }
     },
     "layouts": {
-        "create": ["name", "start.date", "end.date", "location"],
-        "view": ["name", "description", "start.date", "end.date", "location", "organizer", "attendees", "status"]
+        "create": ["name", "calendarId", "start.date", "end.date", "location"],
+        "view": ["name", "description", "calendarId", "start.date", "end.date", "location", "organizer", "attendees", "status"]
     },
     "allOf": [
         {
@@ -38,6 +38,10 @@
                 "description": {
                     "title": "Description",
                     "description": "Detailed description of the event",
+                    "type": "string"
+                },
+                "calendarId": {
+                    "description": "Reference ID for the calendar object",
                     "type": "string"
                 },
                 "location": {
@@ -138,7 +142,7 @@
                     }
                 }
             },
-            "required": ["name", "start.date", "end.date"]
+            "required": ["name", "calendarId", "start.date", "end.date"]
         }
     ],
     "$defs": {

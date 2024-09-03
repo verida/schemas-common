@@ -28,13 +28,11 @@
     },
     "layouts": {
         "create": [
-            "calendarId",
             "name",
             "timezone",
             "location"
         ],
-        "view": [
-            "calendarId",
+        "view": [            
             "name",
             "description",
             "location",
@@ -46,11 +44,7 @@
             "$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json"
         },
         {
-            "properties": {
-                "calendarId": {
-                    "description": "Reference ID of the calendar object",
-                    "type": "string"
-                },
+            "properties": {                
                 "description": {
                     "title": "Description",
                     "description": "Description of the calendar",
@@ -69,7 +63,6 @@
                 }
             },
             "required": [
-                "calendarId",
                 "name",
                 "timezone"
             ]

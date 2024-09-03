@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://common.schemas.example.com/calendar/v0.1.0/schema.json",
+    "$id": "https://common.schemas.example.com/social/calendar/v0.1.0/schema.json",
     "title": "Calendar",
     "titlePlural": "Calendars",
     "description": "Calendar information",
@@ -28,11 +28,13 @@
     },
     "layouts": {
         "create": [
+            "calendarId",
             "name",
             "timezone",
             "location"
         ],
         "view": [
+            "calendarId",
             "name",
             "description",
             "location",
@@ -45,6 +47,10 @@
         },
         {
             "properties": {
+                "calendarId": {
+                    "description": "Reference ID of the calendar object",
+                    "type": "string"
+                },
                 "description": {
                     "title": "Description",
                     "description": "Description of the calendar",
@@ -63,6 +69,7 @@
                 }
             },
             "required": [
+                "calendarId",
                 "name",
                 "timezone"
             ]

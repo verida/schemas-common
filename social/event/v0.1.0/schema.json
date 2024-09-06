@@ -14,14 +14,14 @@
         "name": "social_event",
         "indexes": {
             "name": ["name"],
-            "startTime": ["start.date"],
-            "endTime": ["end.date"],
+            "startTime": ["start"],
+            "endTime": ["end"],
             "source": ["sourceApplication", "sourceId"]
         }
     },
     "layouts": {
-        "create": ["name", "calendarId", "start.date", "end.date", "location"],
-        "view": ["name", "description", "calendarId", "start.date", "end.date", "location", "organizer", "attendees", "status"]
+        "create": ["name", "calendarId", "start", "end", "location"],
+        "view": ["name", "description", "calendarId", "start", "end", "location", "organizer", "attendees", "status"]
     },
     "allOf": [
         {
@@ -142,7 +142,7 @@
                     }
                 }
             },
-            "required": ["calendarId", "start.date", "end.date"]
+            "required": ["calendarId", "start", "end"]
         }
     ],
     "$defs": {

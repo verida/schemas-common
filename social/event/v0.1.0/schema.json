@@ -28,6 +28,7 @@
             "$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json"
         },
         {
+            "type": "object",
             "properties": {
                 "status": {
                     "title": "Status",
@@ -136,7 +137,7 @@
                     }
                 }
             },
-            "required": ["calendarId"]
+            "required": ["calendarId", "start"]
         }
     ],
     "$defs": {

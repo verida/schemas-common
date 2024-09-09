@@ -74,7 +74,8 @@
                             "pattern": "^([+-](?:2[0-3]|[01][0-9]):[0-5][0-9])$",
                             "examples": ["+02:30"]
                         }
-                    }
+                    },
+                    "required": ["dateTime"]
                 },
                 "end": {
                     "title": "End",
@@ -90,8 +91,9 @@
                             "description": "UTC offset format",
                             "pattern": "^([+-](?:2[0-3]|[01][0-9]):[0-5][0-9])$",
                             "examples": ["+02:30"]
-                        }
-                    }
+                        }                        
+                    },
+                    "required": ["dateTime"]
                 },
                 "attendees": {
                     "title": "Attendees",
@@ -134,7 +136,7 @@
                     }
                 }
             },
-            "required": ["calendarId", "start.dateTime", "end.dateTime"]
+            "required": ["calendarId"]
         }
     ],
     "$defs": {

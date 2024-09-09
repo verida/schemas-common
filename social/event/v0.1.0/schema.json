@@ -14,20 +14,21 @@
         "name": "social_event",
         "indexes": {
             "name": ["name"],
-            "startTime": ["start.date"],
-            "endTime": ["end.date"],
+            "startTime": ["start.dateTime"],
+            "endTime": ["end.dateTime"],
             "source": ["sourceApplication", "sourceId"]
         }
     },
     "layouts": {
-        "create": ["name", "calendarId", "start.date", "end.date", "location"],
-        "view": ["name", "description", "calendarId", "start.date", "end.date", "location", "organizer", "attendees", "status"]
+        "create": ["name", "calendarId", "location"],
+        "view": ["name", "description", "calendarId", "start", "end", "location", "organizer", "attendees", "status"]
     },
     "allOf": [
         {
             "$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json"
         },
         {
+            "type": "object",
             "properties": {
                 "status": {
                     "title": "Status",
@@ -68,17 +69,14 @@
                             "type": "string",
                             "format": "date-time"
                         },
-                        "date": {
-                            "type": "string",
-                            "format": "date"
-                        },
                         "timezone": {
                             "type": "string",
                             "description": "UTC offset format",
                             "pattern": "^([+-](?:2[0-3]|[01][0-9]):[0-5][0-9])$",
-                            "example": "+02:30"
+                            "examples": ["+02:30"]
                         }
-                    }
+                    },
+                    "required": ["dateTime"]
                 },
                 "end": {
                     "title": "End",
@@ -89,17 +87,14 @@
                             "type": "string",
                             "format": "date-time"
                         },
-                        "date": {
-                            "type": "string",
-                            "format": "date"
-                        },
                         "timezone": {
                             "type": "string",
                             "description": "UTC offset format",
                             "pattern": "^([+-](?:2[0-3]|[01][0-9]):[0-5][0-9])$",
-                            "example": "+02:30"
-                        }
-                    }
+                            "examples": ["+02:30"]
+                        }                        
+                    },
+                    "required": ["dateTime"]
                 },
                 "attendees": {
                     "title": "Attendees",
@@ -142,7 +137,7 @@
                     }
                 }
             },
-            "required": ["calendarId", "start.date", "end.date"]
+            "required": ["calendarId", "start"]
         }
     ],
     "$defs": {

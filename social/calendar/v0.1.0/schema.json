@@ -60,6 +60,11 @@
                     "title": "Location",
                     "description": "Geographic location of the calendar as free-form text.",
                     "type": "string"
+                },
+                "syncData": {
+                    "title": "Sync Data",
+                    "type": "string",
+                    "description": "Data to help co-ordinating the sync of events in this calendar"
                 }
             },
             "required": [

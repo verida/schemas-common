@@ -45,6 +45,10 @@
                     "description": "Reference ID for the calendar object",
                     "type": "string"
                 },
+                "uri": {
+                    "title": "URI",
+                    "type": "string"
+                },
                 "location": {
                     "title": "Location",
                     "description": "Location of the event",

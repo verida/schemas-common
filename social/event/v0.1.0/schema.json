@@ -14,6 +14,7 @@
         "name": "social_event",
         "indexes": {
             "name": ["name"],
+            "inserted": ["insertedAt"],
             "startTime": ["start.dateTime"],
             "endTime": ["end.dateTime"],
             "source": ["sourceApplication", "sourceId"]

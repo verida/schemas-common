@@ -16,12 +16,12 @@
             "name": ["name"],   
             "inserted": ["insertedAt"],
             "date": ["date"],            
-            "source": ["sourceApplication", "sourceId", "calendar_id"]
+            "source": ["sourceApplication", "sourceId", "calendarEventId"]
         }
     },
     "layouts": {
-        "create": ["name", "organizer_email", "participants", "calendar_id"],
-        "view": ["name", "organizer_email", "participants", "date", "duration", "user", "sentence", "summary"]
+        "create": ["name", "organizerEmail", "participants", "calendarEventId"],
+        "view": ["name", "organizerEmail", "participants", "date", "duration", "user", "sentence", "summary"]
     },
     "allOf": [
         {
@@ -30,7 +30,7 @@
         {
             "type": "object",
             "properties": {                
-                "organizer_email": {
+                "organizerEmail": {
                     "title": "Organizer Email",
                     "description": "Email address of the meeting organizer",
                     "type": "string",
@@ -49,7 +49,7 @@
                         "$ref": "#/$defs/person"
                     }
                 },                                
-                "meeting_attendees": {
+                "meetingAttendees": {
                     "title": "Meeting Attendees",
                     "description": "List of meeting attendees",
                     "type": "array",
@@ -62,10 +62,11 @@
                     "description": "Duration of the meeting audio in seconds",
                     "type": "number"
                 },                
-                "date": {
-                    "title": "Date",
-                    "description": "Epoch time in milliseconds when the transcript was created",
-                    "type": "number"
+                "dateTime": {
+                    "title": "Datetime",
+                    "description": "Datetime info when the transcript was created",
+                    "type": "string",
+                    "format": "date-time"
                 },
                 "sentence": {
                     "title": "Sentence",
@@ -75,18 +76,13 @@
                         "$ref": "#/$defs/sentence"
                     }
                 },
-                "calendar_id": {
+                "calendarEventId": {
                     "title": "Calendar ID",
                     "description": "Unique identifier for the calendar event (Google or Outlook)",
                     "type": "string"
-                },                               
-                "calendar_type": {
-                    "title": "Calendar Type",
-                    "description": "Name of the calendar provider (e.g., Google, Outlook)",
-                    "type": "string"
                 }
             },
-            "required": ["organizer_email"]
+            "required": ["organizerEmail"]
         }
     ],
     "$defs": {
@@ -120,16 +116,16 @@
             "title": "Sentence",
             "description": "Details of a sentence in the transcript",
             "properties": {
-                "raw_text": {
+                "rawText": {
                     "type": "string",
                     "description": "Raw text of the sentence"
                 },
-                "speaker_name": {
+                "speakerName": {
                     "type": "string",
                     "description": "Name of the speaker for this sentence"
                 }
             },
-            "required": ["speaker_name"]
+            "required": ["rawText", "speakerName"]
         }
     }
 }

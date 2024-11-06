@@ -1,0 +1,131 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://common.schemas.verida.io/social/meeting-transcript/v0.1.0/schema.json",
+    "title": "Meeting Transcript",
+    "description": "Schema for a meeting transcript",
+    "type": "object",
+    "appearance": {
+        "style": {
+            "color": "#34A853",
+            "icon": "./icon.svg"
+        }
+    },
+    "database": {
+        "name": "social_meeting_transcript",
+        "indexes": {         
+            "name": ["name"],   
+            "inserted": ["insertedAt"],
+            "date": ["date"],            
+            "source": ["sourceApplication", "sourceId", "calendarEventId"]
+        }
+    },
+    "layouts": {
+        "create": ["name", "organizerEmail", "participants", "calendarEventId"],
+        "view": ["name", "organizerEmail", "participants", "date", "duration", "user", "sentence", "summary"]
+    },
+    "allOf": [
+        {
+            "$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json"
+        },
+        {
+            "type": "object",
+            "properties": {                
+                "organizerEmail": {
+                    "title": "Organizer Email",
+                    "description": "Email address of the meeting organizer",
+                    "type": "string",
+                    "format": "email"
+                },
+                "user": {
+                    "title": "User",
+                    "description": "The user who recorded the meeting on behalf of another",
+                    "$ref": "#/$defs/person"
+                },
+                "speakers": {
+                    "title": "Speakers",
+                    "description": "Array of speakers",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/person"
+                    }
+                },                                
+                "meetingAttendees": {
+                    "title": "Meeting Attendees",
+                    "description": "List of meeting attendees",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/person"
+                    }
+                },                
+                "duration": {
+                    "title": "Duration",
+                    "description": "Duration of the meeting audio in seconds",
+                    "type": "number"
+                },                
+                "dateTime": {
+                    "title": "Datetime",
+                    "description": "Datetime info when the transcript was created",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "sentence": {
+                    "title": "Sentence",
+                    "description": "Array of sentences in the transcript with details like raw text, speaker name, etc.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/sentence"
+                    }
+                },
+                "calendarEventId": {
+                    "title": "Calendar ID",
+                    "description": "Unique identifier for the calendar event (Google or Outlook)",
+                    "type": "string"
+                }
+            },
+            "required": ["organizerEmail"]
+        }
+    ],
+    "$defs": {
+        "person": {
+            "type": "object",
+            "title": "Person",
+            "description": "Schema representing a person",
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "format": "email",
+                    "description": "Email address of the person"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "Display name of the person"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Full name of the attendee"
+                },
+                "phoneNumber": {
+                    "type": "string",
+                    "description": "Phone number of the attendee"
+                }
+            },
+            "required": ["displayName"]
+        },        
+        "sentence": {
+            "type": "object",
+            "title": "Sentence",
+            "description": "Details of a sentence in the transcript",
+            "properties": {
+                "rawText": {
+                    "type": "string",
+                    "description": "Raw text of the sentence"
+                },
+                "speakerName": {
+                    "type": "string",
+                    "description": "Name of the speaker for this sentence"
+                }
+            },
+            "required": ["rawText", "speakerName"]
+        }
+    }
+}

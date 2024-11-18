@@ -13,22 +13,22 @@
     { "$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json" },
     {
       "properties": {
-        "data": {
-          "type": "object",
-          "properties": {
-            "prompt": {
-              "title": "Prompt",
-              "type": "string"
-            },
-            "order": {
-              "title": "Order",
-              "type": "integer"
-            }
-          },
-          "required": ["prompt"]
+        "name": {
+          "type": "string",
+          "title": "Name",
+          "description": "The user-friendly label"
+        },
+        "prompt": {
+          "type": "string",
+          "title": "Prompt",
+          "description": "The actual prompt"
+        },
+        "order": {
+          "type": "integer",
+          "title": "Order"
         }
       },
-      "required": ["data"]
+      "required": ["name", "prompt"]
     }
   ]
 }

@@ -1,0 +1,67 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://common.schemas.verida.io/social/history/v0.1.0/schema.json",
+    "title": "History",
+    "titlePlural": "Histories",
+    "description": "General history of activities such as listening, watching, browsing, etc.",
+    "type": "object",
+    "appearance": {
+        "style": {
+            "color": "#4A90E2",
+            "icon": "./icon.svg"
+        }
+    },
+    "database": {
+        "name": "social_history",
+        "indexes": {
+            "activityType": [
+                "activityType"
+            ],
+            "source": ["sourceApplication", "sourceId"]      
+        }
+    },
+    "layouts": {
+        "create": [
+            "timestamp",
+            "activityType"
+        ],
+        "view": [
+            "timestamp",
+            "activityType",
+            "name",
+            "summary",
+            "url",
+            "sourceApplication",
+            "sourceId"            
+        ]
+    },
+    "allOf": [
+        {
+            "$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json"
+        },
+        {
+            "properties": {
+                "timestamp": {
+                    "title": "Timestamp",
+                    "description": "When the activity occurred",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "activityType": {
+                    "title": "Activity Type",
+                    "description": "Type of activity (e.g., listening, watching, browsing)",
+                    "type": "string",
+                    "enum": ["listening", "watching", "browsing", "reading"]
+                },
+                "url": {
+                    "title": "URL",
+                    "description": "The link of source information"
+                }
+            },
+            "required": [
+                "timestamp",
+                "activityType"
+            ]
+        }
+    ]
+}

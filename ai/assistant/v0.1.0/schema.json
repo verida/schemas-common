@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://common.schemas.verida.io/ai/assistant/v0.1.0/schema.json",
+  "name": "https://common.schemas.verida.io/ai/assistant/v0.1.0/schema.json",
+  "title": "AI Assistant",
+  "titlePlural": "AI Assistants",
+  "description": "AI assistants and their configuration",
+  "type": "object",
+  "database": {
+    "name": "ai_assistants"
+  },
+  "allOf": [
+    { "$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json" },
+    {
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "Name",
+          "description": "The user-friendly label"
+        },
+        "order": {
+          "type": "integer",
+          "title": "Order"
+        }
+      },
+      "required": ["name"]
+    }
+  ]
+}

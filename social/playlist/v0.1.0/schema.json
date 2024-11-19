@@ -1,0 +1,117 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://common.schemas.verida.io/social/playlist/v0.1.0/schema.json",
+    "title": "Playlist",
+    "titlePlural": "Playlists",
+    "description": "A generic schema for playlists from platforms like Spotify, YouTube, etc.",
+    "type": "object",
+    "appearance": {
+        "style": {
+            "color": "#1DB954",
+            "icon": "./icon.svg"
+        }
+    },
+    "database": {
+        "name": "social_playlist",
+        "indexes": {
+            "name": ["name"],    
+            "source": ["sourceApplication", "sourceId"]
+        }
+    },
+    "layouts": {
+        "create": [
+            "name"            
+        ],
+        "view": [
+            "name",            
+            "tracks"            
+        ]
+    },
+    "$defs": {
+        "person": {
+            "type": "object",
+            "title": "Person",
+            "description": "Schema representing a person",
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "format": "email",
+                    "description": "Email address of the person"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "Display name of the person"
+                }
+            },
+            "required": ["displayName"]
+        },
+        "track": {
+            "type": "object",
+            "title": "Track",
+            "description": "Schema representing a track or video in the playlist",
+            "properties": {
+                "id": {
+                    "title": "Track ID",
+                    "description": "Unique identifier for the track/video",
+                    "type": "string"
+                },
+                "title": {
+                    "title": "Title",
+                    "description": "Title of the track/video",
+                    "type": "string"
+                },
+                "artist": {
+                    "title": "Artist/Creator",
+                    "description": "Name of the artist or content creator",
+                    "type": "string"
+                },
+                "album": {
+                    "title": "Album",
+                    "description": "Album name (if applicable, e.g., for Spotify)",
+                    "type": "string"
+                },
+                "thumbnail": {
+                    "title": "Thumbnail",
+                    "description": "URL of the thumbnail image",
+                    "type": "string",
+                    "format": "uri"
+                },
+                "duration": {
+                    "title": "Duration",
+                    "description": "Duration of the track/video in milliseconds",
+                    "type": "integer"
+                },
+                "url": {
+                    "title": "URL",
+                    "description": "Direct URL to the track/video",
+                    "type": "string",
+                    "format": "uri"
+                }
+            },
+            "required": ["id", "title"]
+        }
+    },
+    "allOf": [
+        {
+            "$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json"
+        },
+        {
+            "properties": {
+                "owner": {
+                    "$ref": "#/$defs/person"
+                },
+                "tracks": {
+                    "type": "array",
+                    "title": "Tracks",
+                    "description": "Array of track or video items in the playlist",
+                    "items": {
+                        "$ref": "#/$defs/track"
+                    }
+                }
+            },
+            "required": [
+                "name"
+            ]
+        }
+    ]
+}

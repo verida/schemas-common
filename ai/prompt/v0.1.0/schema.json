@@ -1,18 +1,23 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://common.schemas.verida.io/assistant/prompt/v0.1.0/schema.json",
-  "name": "https://common.schemas.verida.io/assistant/prompt/v0.1.0/schema.json",
+  "$id": "https://common.schemas.verida.io/ai/prompt/v0.1.0/schema.json",
+  "name": "https://common.schemas.verida.io/ai/prompt/v0.1.0/schema.json",
   "title": "User Prompt",
   "titlePlural": "User Prompts",
   "description": "Saved prompts for the assistant",
   "type": "object",
   "database": {
-    "name": "prompts"
+    "name": "ai_prompt"
   },
   "allOf": [
     { "$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json" },
     {
       "properties": {
+        "assistantId": {
+          "type": "string",
+          "title": "Assistant ID",
+          "description": "The ID of the assistant"
+        },
         "name": {
           "type": "string",
           "title": "Name",
@@ -28,7 +33,7 @@
           "title": "Order"
         }
       },
-      "required": ["name", "prompt"]
+      "required": ["assistantId", "name", "prompt"]
     }
   ]
 }

@@ -7,7 +7,7 @@
   "description": "AI assistants and their configuration",
   "type": "object",
   "database": {
-    "name": "ai_assistants"
+    "name": "ai_assistant"
   },
   "allOf": [
     { "$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json" },

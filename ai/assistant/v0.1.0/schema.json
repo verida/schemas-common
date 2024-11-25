@@ -19,7 +19,7 @@
           "description": "The user-friendly label"
         },
         "order": {
-          "type": "integer",
+          "type": "number",
           "title": "Order"
         }
       },

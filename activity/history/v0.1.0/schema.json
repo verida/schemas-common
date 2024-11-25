@@ -15,7 +15,8 @@
         "name": "activity_history",
         "indexes": {
             "name": ["name", "activityType", "timestamp"],
-            "insertedAt": ["insertedAt", "timestamp"],
+            "insertedAt": ["insertedAt"],
+            "timestamp": ["timestamp"],
             "source": ["sourceApplication", "sourceId"]      
         }
     },
@@ -29,6 +30,7 @@
             "name",
             "timestamp",
             "activityType",
+            "duration",
             "summary",
             "url",
             "sourceApplication",

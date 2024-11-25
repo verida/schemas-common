@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://common.schemas.verida.io/social/playlist/v0.1.0/schema.json",
+    "$id": "https://common.schemas.verida.io/media/playlist/v0.1.0/schema.json",
     "title": "Playlist",
     "titlePlural": "Playlists",
     "description": "A generic schema for playlists from platforms like Spotify, YouTube, etc.",
@@ -12,22 +12,30 @@
         }
     },
     "database": {
-        "name": "social_playlist",
+        "name": "media_playlist",
         "indexes": {
-            "name": ["name"],    
+            "name": ["name"],
             "source": ["sourceApplication", "sourceId"]
         }
     },
     "layouts": {
         "create": [
-            "name"            
+            "name",
+            "type"
         ],
         "view": [
-            "name",            
-            "tracks"            
+            "name",
+            "type",
+            "tracks"
         ]
     },
     "$defs": {
+        "type": {
+            "type": "string",
+            "enum": ["audio", "video"],
+            "title": "Type",
+            "description": "Type of the playlist or track, either audio or video"
+        },
         "person": {
             "type": "object",
             "title": "Person",
@@ -86,6 +94,9 @@
                     "description": "Direct URL to the track/video",
                     "type": "string",
                     "format": "uri"
+                },
+                "type": {
+                    "$ref": "#/$defs/type"
                 }
             },
             "required": ["id", "title"]
@@ -97,6 +108,9 @@
         },
         {
             "properties": {
+                "type": {
+                    "$ref": "#/$defs/type"
+                },
                 "owner": {
                     "$ref": "#/$defs/person"
                 },
@@ -109,9 +123,7 @@
                     }
                 }
             },
-            "required": [
-                "name"
-            ]
+            "required": ["name", "type"]
         }
     ]
 }

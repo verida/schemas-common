@@ -1,0 +1,76 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://common.schemas.verida.io/activity/history/v0.1.0/schema.json",
+    "title": "History",
+    "titlePlural": "Histories",
+    "description": "General history of activities such as listening, watching, browsing, etc.",
+    "type": "object",
+    "appearance": {
+        "style": {
+            "color": "#4A90E2",
+            "icon": "./icon.svg"
+        }
+    },
+    "database": {
+        "name": "activity_history",
+        "indexes": {
+            "name": ["name", "activityType", "timestamp"],
+            "insertedAt": ["insertedAt"],
+            "timestamp": ["timestamp"],
+            "source": ["sourceApplication", "sourceId"]      
+        }
+    },
+    "layouts": {
+        "create": [
+            "name",
+            "timestamp",
+            "activityType"
+        ],
+        "view": [
+            "name",
+            "timestamp",
+            "activityType",
+            "duration",
+            "summary",
+            "url",
+            "sourceApplication",
+            "sourceId"            
+        ]
+    },
+    "allOf": [
+        {
+            "$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json"
+        },
+        {
+            "properties": {
+                "timestamp": {
+                    "title": "Timestamp",
+                    "description": "When the activity occurred",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "activityType": {
+                    "title": "Activity Type",
+                    "description": "Type of activity (e.g., listening, watching, browsing)",
+                    "type": "string",
+                    "enum": ["listening", "watching", "browsing", "reading"]
+                },
+                "url": {
+                    "title": "URL",
+                    "description": "The link of source information"
+                },
+                "duration": {
+                    "title": "Duration",
+                    "description": "Duration of the activity in seconds",
+                    "type": "integer",
+                    "minimum": 0
+                }
+            },
+            "required": [
+                "name",
+                "timestamp",
+                "activityType"
+            ]
+        }
+    ]
+}

@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://common.schemas.verida.io/social/history/v0.1.0/schema.json",
+    "$id": "https://common.schemas.verida.io/activity/history/v0.1.0/schema.json",
     "title": "History",
     "titlePlural": "Histories",
     "description": "General history of activities such as listening, watching, browsing, etc.",
@@ -12,23 +12,23 @@
         }
     },
     "database": {
-        "name": "social_history",
+        "name": "activity_history",
         "indexes": {
-            "activityType": [
-                "activityType"
-            ],
+            "name": ["name", "activityType", "timestamp"],
+            "insertedAt": ["insertedAt", "timestamp"],
             "source": ["sourceApplication", "sourceId"]      
         }
     },
     "layouts": {
         "create": [
+            "name",
             "timestamp",
             "activityType"
         ],
         "view": [
+            "name",
             "timestamp",
             "activityType",
-            "name",
             "summary",
             "url",
             "sourceApplication",
@@ -56,9 +56,16 @@
                 "url": {
                     "title": "URL",
                     "description": "The link of source information"
+                },
+                "duration": {
+                    "title": "Duration",
+                    "description": "Duration of the activity in seconds",
+                    "type": "integer",
+                    "minimum": 0
                 }
             },
             "required": [
+                "name",
                 "timestamp",
                 "activityType"
             ]

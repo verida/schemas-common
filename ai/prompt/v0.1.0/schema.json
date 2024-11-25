@@ -29,7 +29,7 @@
           "description": "The actual prompt"
         },
         "order": {
-          "type": "integer",
+          "type": "number",
           "title": "Order"
         }
       },

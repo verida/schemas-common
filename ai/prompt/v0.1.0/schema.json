@@ -7,7 +7,12 @@
   "description": "Saved prompts for the assistant",
   "type": "object",
   "database": {
-    "name": "ai_prompt"
+    "name": "ai_prompt",
+    "indexes": {
+      "order": ["order", "insertedAt"],
+      "name": ["name", "insertedAt"],
+      "insertedAt": ["insertedAt"]
+    }
   },
   "allOf": [
     { "$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json" },

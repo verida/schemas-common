@@ -12,7 +12,7 @@
         }
     },
     "database": {
-        "name": "calendar_data",
+        "name": "social_calendar",
         "indexes": {
             "name": [
                 "name"
